@@ -1,0 +1,25 @@
+#!/bin/bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+
+# Sudo autocomplete
+complete -cf sudo
+
+# Git autocomplete
+source /usr/share/git/completion/git-completion.bash
+
+eval "$(starship init bash)"
+
+source $SCRIPT_DIR/aliases
+
+eval "$(fzf --bash)"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+fastfetch
+

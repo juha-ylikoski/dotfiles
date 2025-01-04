@@ -1,0 +1,10 @@
+
+
+alias ll="ls -alh"
+alias l="ls -a"
+
+alias pacman="sudo pacman"
+
+alias v=nvim
+alias vim=nvim
+

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+TOOLTIP='Default Keybinds\n'\
+'SUPER + Q = Start Kitty\n'\
+'SUPER + C = Close Window\n'\
+'SUPER + SHIFT + L = Lock Screen\n'\
+'SUPER + M = Logout menu\n'\
+'SUPER + E = File Manager\n'\
+'SUPER + N = Toggle Float\n'\
+'SUPER + R = App Launcher\n'\
+'SUPER + S = Screenshot\n'
+
+echo  '{"text": "'$TOOLTIP'"}'
+
+
