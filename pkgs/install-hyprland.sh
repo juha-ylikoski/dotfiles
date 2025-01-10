@@ -72,6 +72,7 @@ install_stage=(
     xfce4-settings
     nwg-look
     sddm
+    dolphin
 )
 
 for str in ${myArray[@]}; do
@@ -182,6 +183,8 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
     sleep 2
     echo -e "\e[1A\e[K$COK - NetworkManager restart completed."
 fi
+
+sudo pacman -S --needed --noconfirm git base-devel
 
 #### Check for package manager ####
 if [ ! -f /sbin/yay ]; then  
@@ -333,6 +336,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
     gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
     # cp -f ~/.config/HyprV/backgrounds/v4-background-dark.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+    localectl set-keymap fi fi
+    swww img ~/dotfiles/imgs/recursive_centaur.webp
 fi
 
 ### Install the starship shell ###

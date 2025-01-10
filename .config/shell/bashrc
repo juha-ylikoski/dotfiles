@@ -16,8 +16,11 @@ source $SCRIPT_DIR/aliases
 eval "$(fzf --bash)"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+if which pyenv &> /dev/null;
+then
+	eval "$(pyenv init --path)"
+	eval "$(pyenv virtualenv-init -)"
+fi
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 

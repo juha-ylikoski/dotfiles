@@ -1,1 +1,8 @@
+make
+gcc
+ripgrep
+unzip
+git
+xclip
+npm
 neovim
