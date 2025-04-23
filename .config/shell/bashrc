@@ -13,6 +13,10 @@ eval "$(starship init bash)"
 
 source $SCRIPT_DIR/aliases
 
+# Add shh keys
+eval $(ssh-agent -s) &> /dev/null
+ssh-add &> /dev/null
+
 eval "$(fzf --bash)"
 
 export PATH="$HOME/.pyenv/bin:$PATH"

@@ -13,6 +13,7 @@ install: ~/.config/hypr \
 	~/.config/wlogout \
 	~/.config/wofi \
 	~/.config/nvim \
+	~/.config/htop \
 	~/.bashrc \
 
 
