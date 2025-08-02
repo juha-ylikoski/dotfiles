@@ -75,6 +75,7 @@ install_stage=(
     nwg-look
     sddm
     dolphin
+    kate
 )
 
 for str in ${myArray[@]}; do

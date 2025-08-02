@@ -15,6 +15,7 @@ install: ~/.config/hypr \
 	~/.config/nvim \
 	~/.config/htop \
 	~/.bashrc \
+	~/.config/mimeapps.list
 
 
 .PHONY: ~/.bashrc

@@ -1,0 +1,33 @@
+[Added Associations]
+text/plain=org.kde.kate.desktop;nvim.desktop;
+image/jpeg=mupdf.desktop;firefox.desktop;
+image/png=mupdf.desktop;firefox.desktop;
+application/pdf=mupdf.desktop;firefox.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+text/html=firefox.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
+
+[Default Applications]
+image/jpeg=mupdf.desktop
+image/png=mupdf.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+application/pdf=mupdf.desktop
+text/plain=org.kde.kate.desktop
+inode/directory=org.kde.dolphin.desktop
+
