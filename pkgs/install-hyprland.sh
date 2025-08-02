@@ -45,7 +45,7 @@ install_stage=(
     kitty 
     mako 
     waybar
-    swww 
+    hypridle
     swaylock-effects 
     wofi 
     wlogout 

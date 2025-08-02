@@ -9,7 +9,11 @@ TOOLTIP='Default Keybinds\n'\
 'SUPER + V = Toggle Float\n'\
 'SUPER + N = Toggle Split\n'\
 'SUPER + R = App Launcher\n'\
-'SUPER + S = Screenshot\n'
+'SUPER + S = Screenshot\n'\
+'SUPER + F = Toggle full screen\n'\
+'SUPER + G = Toggle Group\n'\
+'ALT + Tab = Next tab in Group\n'\
+'ALT + Shift + Tab = Next tab in Group\n'
 
 echo  '{"text": "'$TOOLTIP'"}'
 

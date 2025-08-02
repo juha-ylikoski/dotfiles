@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 alias ll="ls -alh"
 alias l="ls -a"
@@ -7,4 +7,12 @@ alias pacman="sudo pacman"
 
 alias v=nvim
 alias vim=nvim
+
+
+reload_waybar() {
+	pkill waybar && hyprctl dispatch exec waybar
+}
+
+
+alias deepseek="ollama run deepseek-r1"
 

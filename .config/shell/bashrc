@@ -28,5 +28,7 @@ fi
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
+export MAKEFLAGS="--jobs=$(nproc)"
+
 fastfetch
 
