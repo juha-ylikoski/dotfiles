@@ -76,6 +76,7 @@ install_stage=(
     sddm
     dolphin
     kate
+    earlyoom
 )
 
 for str in ${myArray[@]}; do
@@ -223,6 +224,8 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     for SOFTWR in ${prep_stage[@]}; do
         install_software $SOFTWR 
     done
+
+    sudo systemctl enable --now earlyoom &>> $INSTLOG
 
     # Setup Nvidia if it was found
     if [[ "$ISNVIDIA" == true ]]; then
