@@ -16,3 +16,24 @@ reload_waybar() {
 
 alias deepseek="ollama run deepseek-r1"
 
+read-remote-cert () {
+    openssl s_client -connect $1 -showcerts | openssl x509 -noout -text
+}
+
+view-kube-secret() {
+    kubectl get secrets $1 -o json -n $2 | jq ".data | to_entries | .[] | [.key, .value] | @tsv" -r | xargs -l bash -c 'echo $0=$(echo $1 | base64 -d)'
+}
+
+envpy() {
+    source .venv/bin/activate
+}
+
+alias snap='sudo snap'
+alias python="python3"
+alias iotop="sudo iotop"
+alias nethogs="sudo nethogs"
+alias avahi-browse-ssh="avahi-browse -d local _ssh._tcp --resolve -t"
+alias ssh-copy-id="ssh-copy-id -i ~/.ssh/id_rsa.pub"
+alias docker-compose="docker compose"
+
+

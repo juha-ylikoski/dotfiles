@@ -5,7 +5,8 @@ SHAREDIR ?= $(PREFIX)/share/hyprevents
 current_dir = $(shell pwd)
 
 
-install: ~/.config/hypr \
+install: ~/.config \
+	~/.config/hypr \
 	~/.config/kitty \
 	~/.config/mako \
 	~/.config/swaylock \
@@ -17,6 +18,9 @@ install: ~/.config/hypr \
 	~/.bashrc \
 	~/.config/mimeapps.list
 
+
+~/.config:
+	mkdir -p ~/.config
 
 .PHONY: ~/.bashrc
 ~/.bashrc:

@@ -42,7 +42,7 @@ nvidia_stage=(
 
 #the main packages
 install_stage=(
-    kitty 
+    alacritty
     mako 
     waybar
     hypridle

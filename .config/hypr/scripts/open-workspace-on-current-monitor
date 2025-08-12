@@ -1,0 +1,13 @@
+#!/bin/sh
+
+new_workspace="$1"
+current_monitor="$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .id ')"
+previous_ws="$(hyprctl activeworkspace -j | jq .name -r)"
+
+if [ $new_workspace = $previous_ws ] || [ $new_workspace = "name:$previous_ws" ]; then
+	hyprctl dispatch workspace -q previous
+else
+	hyprctl dispatch moveworkspacetomonitor $new_workspace $current_monitor
+	hyprctl dispatch workspace -q $new_workspace
+fi
+

@@ -19,7 +19,7 @@ ssh-add &> /dev/null
 
 eval "$(fzf --bash)"
 
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH:/var/lib/snapd/snap/bin/"
 if which pyenv &> /dev/null;
 then
 	eval "$(pyenv init --path)"
@@ -29,6 +29,10 @@ fi
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 export MAKEFLAGS="--jobs=$(nproc)"
+
+export CMAKE_POLICY_VERSION_MINIMUM=3.5
+
+export EDITOR=nvim
 
 fastfetch
 

@@ -7,4 +7,7 @@ libreoffice
 ntfs-3g
 netcat
 bind
+htop
+bash-completion
+cmake
 
