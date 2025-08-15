@@ -35,5 +35,5 @@ alias nethogs="sudo nethogs"
 alias avahi-browse-ssh="avahi-browse -d local _ssh._tcp --resolve -t"
 alias ssh-copy-id="ssh-copy-id -i ~/.ssh/id_rsa.pub"
 alias docker-compose="docker compose"
-
+alias ssh="TERM=xterm-256color ssh"
 
