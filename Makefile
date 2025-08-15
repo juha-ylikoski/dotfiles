@@ -15,6 +15,7 @@ install: ~/.config \
 	~/.config/wofi \
 	~/.config/nvim \
 	~/.config/htop \
+	~/.config/starship.toml \
 	~/.bashrc \
 	~/.config/mimeapps.list
 
