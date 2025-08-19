@@ -46,7 +46,7 @@ install_stage=(
     mako 
     waybar
     hypridle
-    swaylock-effects 
+    hyprlock
     wofi 
     wlogout 
     xdg-desktop-portal-hyprland 
