@@ -315,9 +315,9 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
 
     # add the Nvidia env file to the config (if needed)
-    if [[ "$ISNVIDIA" == true ]]; then
-        echo -e "\nsource = ~/.config/hypr/env_var_nvidia.conf" >> ~/.config/hypr/hyprland.conf
-    fi
+    # if [[ "$ISNVIDIA" == true ]]; then
+    #     echo -e "\nsource = ~/.config/hypr/env_var_nvidia.conf" >> ~/.config/hypr/hyprland.conf
+    # fi
 
     # Copy the SDDM theme
     echo -e "$CNT - Setting up the login screen."
@@ -343,7 +343,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
     # cp -f ~/.config/HyprV/backgrounds/v4-background-dark.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
     localectl set-keymap fi fi
-    swww img ~/dotfiles/imgs/recursive_centaur.webp
+    # swww img ~/dotfiles/imgs/recursive_centaur.webp
 fi
 
 ### Install the starship shell ###
