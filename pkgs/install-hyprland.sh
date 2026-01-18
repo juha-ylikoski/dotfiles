@@ -31,7 +31,7 @@ prep_stage=(
 
 #software for nvidia GPU only
 nvidia_stage=(
-    linux-tls-headers 
+    linux-lts-headers 
     nvidia-open-lts 
     nvidia-settings 
     nvidia-utils
