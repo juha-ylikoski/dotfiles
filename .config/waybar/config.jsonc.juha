@@ -126,9 +126,9 @@
 
     "custom/updates": {
         "format": "updates available {}",
-        "exec": "~/.config/waybar/scripts/update-sys",
+        "exec": "flock /tmp/waybar-update-sys ~/.config/waybar/scripts/update-sys",
         "on-click": "~/.config/waybar/scripts/update-sys update",
-        "interval": 300,
+        "interval": 3600,
         "tooltip": true
     },
     "clock": {
