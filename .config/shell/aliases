@@ -29,6 +29,37 @@ envpy() {
     source .venv/bin/activate
 }
 
+ktop-node () {
+  if [ -z "$1" ]; then
+    echo "Usage: ktop-node <node-name> [--containers]" >&2
+    return 1
+  fi
+  NODE="$1"; shift
+  CONTAINERS_FLAG=""
+  if [ "$1" = "--containers" ]; then CONTAINERS_FLAG="--containers"; fi
+
+  kubectl get pods -A -o wide --field-selector spec.nodeName="$NODE" --no-headers \
+  | awk '{print $1, $2}' \
+  | while read ns pod; do
+      kubectl top pod -n "$ns" "$pod" $CONTAINERS_FLAG --no-headers
+    done \
+  | column -t
+}
+
+debug-kube-node() {
+  if [ -z "$1" ]; then
+    echo "Usage: debug-kube-node <node-name>" >&2
+    return 1
+  fi
+  NODE="$1"; shift
+    kubectl debug node/$NODE -it --image=alpine:3.20 -- sh
+}
+
+
+claude-here() {
+  docker run --rm -it -v $(pwd):$(pwd) -w $(pwd) -v $HOME/.claude:/home/juha/.claude -v $HOME/.claude.json:/home/juha/.claude.json sandboxed-claude $@
+}
+
 alias snap='sudo snap'
 alias python="python3"
 alias iotop="sudo iotop"
@@ -37,4 +68,8 @@ alias avahi-browse-ssh="avahi-browse -d local _ssh._tcp --resolve -t"
 alias ssh-copy-id="ssh-copy-id -i ~/.ssh/id_rsa.pub"
 alias docker-compose="docker compose"
 alias ssh="TERM=xterm-256color ssh"
+alias uvim="uv run nvim"
 
+alias remove_color="sed 's/\x1b\[[0-9;]*m//g'"
+
+alias git_tag="git tag -n"
