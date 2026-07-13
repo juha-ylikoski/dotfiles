@@ -1,0 +1,7 @@
+require("current/monitors")
+require("common/config")
+require("common/env")
+require("common/binds")
+require("common/window_rules")
+require("common/startup")
+require("common/animations")
