@@ -40,6 +40,14 @@ local function apply_monitors()
 			scale = 1,
 			transform = 1,
 		})
+		-- Laptop monitor (always present)
+		hl.monitor({
+			output = "desc:BOE 0x0A35",
+			mode = "1920x1200@60",
+			position = "auto-left",
+			scale = 1,
+			disabled = false,
+		})
 	else
 		-- Home screens
 		hl.monitor({
@@ -53,6 +61,10 @@ local function apply_monitors()
 			mode = "preferred",
 			position = "auto-right",
 			scale = 1,
+		})
+		hl.monitor({
+			output = "desc:BOE 0x0A35",
+			disabled = true,
 		})
 	end
 end
