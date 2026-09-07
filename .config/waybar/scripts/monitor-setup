@@ -1,0 +1,16 @@
+#!/bin/bash
+# Read the current Hyprland monitor setup enum and emit waybar JSON.
+# The file is written by ~/.config/hypr/*/monitors.lua on dock/undock.
+
+setup="$(cat /tmp/hyprland-monitors 2>/dev/null | tr -d '[:space:]')"
+
+case "$setup" in
+    office) text=" Office" ;;
+    home)   text=" Home" ;;
+    laptop) text=" Laptop" ;;
+    "")     text=" ?"; setup="unknown" ;;
+    *)      text=" $setup" ;;
+esac
+
+printf '{"text": "%s", "tooltip": "Monitor setup: %s", "class": "%s"}\n' \
+    "$text" "$setup" "$setup"

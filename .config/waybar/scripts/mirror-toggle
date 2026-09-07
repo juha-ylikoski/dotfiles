@@ -1,0 +1,50 @@
+#!/bin/bash
+# Laptop-display mirroring toggle for presenting.
+#
+# This script does NOT touch monitors. It only records intent by writing
+# "on"/"off" to /tmp/hyprland-mirror; ~/.config/hypr/*/monitors.lua reads that
+# file and performs the actual monitor changes (mirror on/off). This keeps
+# Hyprland as the single source of truth and avoids `hyprctl reload`.
+#
+# Actions:
+#   (no arg) toggle on/off   (waybar on-click)
+#   status   emit waybar JSON for the module
+
+STATE="/tmp/hyprland-mirror"
+SETUP_FILE="/tmp/hyprland-monitors"
+
+read_state() { tr -d '[:space:]' 2>/dev/null < "$STATE"; }
+read_setup() { tr -d '[:space:]' 2>/dev/null < "$SETUP_FILE"; }
+
+status_json() {
+    # Only relevant while presenting on the laptop; hide otherwise.
+    if [ "$(read_setup)" != "laptop" ]; then
+        printf '{"text": ""}\n'
+        return
+    fi
+    if [ "$(read_state)" = "on" ]; then
+        printf '{"text": "󰍹 Mirror", "tooltip": "Laptop mirroring: ON (click to disable)", "class": "on"}\n'
+    else
+        printf '{"text": "󰍹", "tooltip": "Laptop mirroring: OFF (click to enable)", "class": "off"}\n'
+    fi
+}
+
+case "$1" in
+    status)
+        status_json
+        ;;
+    *)
+        # Toggle — only meaningful in laptop/present mode.
+        if [ "$(read_setup)" != "laptop" ]; then
+            notify-send "Mirror" "Mirroring is only available in laptop/present mode." 2>/dev/null
+            exit 0
+        fi
+        if [ "$(read_state)" = "on" ]; then
+            echo "off" > "$STATE"
+        else
+            echo "on" > "$STATE"
+        fi
+        # Refresh the indicator now; monitors.lua applies the change within ~1s.
+        pkill -RTMIN+9 waybar
+        ;;
+esac

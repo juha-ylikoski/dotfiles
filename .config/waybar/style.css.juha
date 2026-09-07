@@ -330,6 +330,17 @@ label:focus {
     background: #ff0088;
 }
 
+#custom-mirror-toggle {
+    padding: 0 16px;
+    min-width: 90px;
+    color: #ffffff;
+    background-color: #34495e;
+}
+
+#custom-mirror-toggle.on {
+    background-color: #2980b9;
+}
+
 
 
 

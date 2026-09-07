@@ -17,6 +17,8 @@
 	"hyprland/window"
     ],
     "modules-right": [
+        "custom/monitor-setup",
+        "custom/mirror-toggle",
         "temperature",
         "battery",
         "pulseaudio",
@@ -170,6 +172,23 @@
         "critical-threshold": 70,
         "format-critical": " {temperatureC}°C",
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "custom/monitor-setup": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/monitor-setup",
+        "return-type": "json",
+        "interval": 30,
+        "signal": 8,
+        "tooltip": true
+    },
+    "custom/mirror-toggle": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/mirror-toggle status",
+        "on-click": "~/.config/waybar/scripts/mirror-toggle",
+        "return-type": "json",
+        "interval": 30,
+        "signal": 9,
+        "tooltip": true
     },
     "custom/hyprland-tip": {
         "format": "Hyprland",
