@@ -57,7 +57,7 @@ debug-kube-node() {
 
 
 claude-here() {
-  docker run --rm -it -v $(pwd):$(pwd) -w $(pwd) -v $HOME/.claude:/home/juha/.claude -v $HOME/.claude.json:/home/juha/.claude.json sandboxed-claude $@
+  docker run --rm -it -v $(pwd):$(pwd) -w $(pwd) -v $HOME/.claude:/home/juha/.claude -v $HOME/.claude.json:/home/juha/.claude.json -v /var/run/docker.sock:/var/run/docker.sock sandboxed-claude $@
 }
 
 alias snap='sudo snap'
