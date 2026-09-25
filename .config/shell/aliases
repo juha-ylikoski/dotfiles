@@ -60,6 +60,14 @@ claude-here() {
   docker run --rm -it -v $(pwd):$(pwd) -w $(pwd) -v $HOME/.claude:/home/juha/.claude -v $HOME/.claude.json:/home/juha/.claude.json -v /var/run/docker.sock:/var/run/docker.sock sandboxed-claude $@
 }
 
+yay() {
+  if command -v pyenv >/dev/null 2>&1; then
+    PYENV_VERSION=system command yay "$@"
+  else
+    command yay "$@"
+  fi
+}
+
 alias snap='sudo snap'
 alias python="python3"
 alias iotop="sudo iotop"
